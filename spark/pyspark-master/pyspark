@@ -1,0 +1,17 @@
+from pyspark.sql import SparkSession
+
+print("Starting Spark...")
+
+spark = SparkSession.builder \
+    .appName("TestApp") \
+    .master("local[*]") \
+    .getOrCreate()
+
+print("Spark Started")
+
+df = spark.range(5)
+df.show()
+
+spark.stop()
+
+print("Finished")
